@@ -1,0 +1,125 @@
+{
+  "info": {
+    "_postman_id": "rotoplas-api-coleccion-001",
+    "name": "API Rotoplas - CRUD Modulos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Usuario - Registrar (normal)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"juan\",\n  \"email\": \"juan@ejemplo.com\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": { "raw": "http://localhost:3003/api/auth/register", "protocol": "http", "host": ["localhost"], "port": "3003", "path": ["api", "auth", "register"] }
+      }
+    },
+    {
+      "name": "Usuario - Registrar (admin)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"admin\",\n  \"email\": \"admin@ejemplo.com\",\n  \"password\": \"admin123\",\n  \"rol\": \"admin\"\n}"
+        },
+        "url": { "raw": "http://localhost:3003/api/auth/register", "protocol": "http", "host": ["localhost"], "port": "3003", "path": ["api", "auth", "register"] }
+      }
+    },
+    {
+      "name": "Usuario - Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"juan\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": { "raw": "http://localhost:3003/api/auth/login", "protocol": "http", "host": ["localhost"], "port": "3003", "path": ["api", "auth", "login"] }
+      }
+    },
+    {
+      "name": "Material - Crear",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "user-id", "value": "juan", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Polietileno\",\n  \"color\": \"Blanco\",\n  \"cantidad\": 100,\n  \"descripcion\": \"Material base\"\n}"
+        },
+        "url": { "raw": "http://localhost:3003/api/material", "protocol": "http", "host": ["localhost"], "port": "3003", "path": ["api", "material"] }
+      }
+    },
+    {
+      "name": "Material - Ver todos (admin)",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "admin-token", "value": "miclaveadmin123", "type": "text" }
+        ],
+        "url": { "raw": "http://localhost:3003/api/material", "protocol": "http", "host": ["localhost"], "port": "3003", "path": ["api", "material"] }
+      }
+    },
+    {
+      "name": "Producción - Crear",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "user-id", "value": "juan", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"tipoClase\": \"Clase A\",\n  \"tipoCapa\": \"Capa simple\",\n  \"reforzado\": true,\n  \"cantidad\": 50,\n  \"descripcion\": \"Producción especial\"\n}"
+        },
+        "url": { "raw": "http://localhost:3003/api/produccion", "protocol": "http", "host": ["localhost"], "port": "3003", "path": ["api", "produccion"] }
+      }
+    },
+    {
+      "name": "Venta - Crear",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "user-id", "value": "juan", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"tipoClase\": \"Clase B\",\n  \"tipoCapa\": \"Doble capa\",\n  \"reforzado\": false,\n  \"cantidad\": 20,\n  \"descripcion\": \"Venta especial\",\n  \"capacidadLitros\": 200\n}"
+        },
+        "url": { "raw": "http://localhost:3003/api/venta", "protocol": "http", "host": ["localhost"], "port": "3003", "path": ["api", "venta"] }
+      }
+    },
+    {
+      "name": "Precio - Crear",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "user-id", "value": "juan", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"producto\": \"Tanque\",\n  \"precio\": 1500\n}"
+        },
+        "url": { "raw": "http://localhost:3003/api/precio", "protocol": "http", "host": ["localhost"], "port": "3003", "path": ["api", "precio"] }
+      }
+    },
+    {
+      "name": "Receta - Crear",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "user-id", "value": "juan", "type": "text" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Receta 1\",\n  \"ingredientes\": [\"Material A\", \"Material B\"],\n  \"pasos\": \"Mezclar y calentar\"\n}"
+        },
+        "url": { "raw": "http://localhost:3003/api/receta", "protocol": "http", "host": ["localhost"], "port": "3003", "path": ["api", "receta"] }
+      }
+    }
+  ]
+} 
